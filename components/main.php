@@ -1,5 +1,5 @@
 <main class="main d-flex">
-<div class="container mt-5 w-50 p-3">
+<div class="container mt-5 w-25 p-3">
         <form>
             <div class="mb-3">
                 <label for="taskInput" class="form-label">Tâche</label>
@@ -14,40 +14,64 @@
                 <input type="date" class="form-control" id="dateInput">
             </div>
             <div class="mb-3">
-                <label for="prioritySelect" class="form-label">Priorité</label>
+                <label for="prioritySelect" class="form-label"
+                >Priorité</label><img src="./iconsSVG/tooltipsIcons.svg" data-bs-toggle="tooltip" data-bs-title="Changez la couleur de vos tâches selon leur priorités ;)" class="ms-2 mb-2"alt="">
                 <select class="form-select" id="prioritySelect">
-                    <option value="normal">Normal</option>
-                    <option value="important">Important</option>
-                    <option value="urgent">Urgent</option>
+                    <option value="normal" class="bg-success-subtle">Normal</option>
+                    <option value="important" class="bg-warning-subtle">Important</option>
+                    <option value="urgent" class="bg-danger-subtle">Urgent</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Ajouter</button>
         </form>
 </div>
 <div class="container mt-5 w-50 p-3 d-flex align-items-center justify-content-center">
-    <ul class="list-group list-group-flush">
-        <div class="task-container d-flex justify-content-center align-items-center ">
-            <li class="list-group-item w-75 p-1 h-50">Faire la vaiselle</li>
-            <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-25 p-3">
-            <img src="../iconsSVG/trashIcon.svg" alt="" class="w-25 p-3">
+    <div class="list-group list-group-flush">
+        <div class=" d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-warning-subtle">
+            <div class="w-auto h-50 p-1" id="task1">Faire la vaiselleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
+            <div class="btn-group p-2">
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                    <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
+                </button>
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                    <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
+                </button>
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
+                </button>
+            </div>  
         </div>
-        <div class="task-container d-flex justify-content-center align-items-center">
-            <li class="list-group-item w-75 p-1 h-50">Sortir le chien</li>
-            <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-25 p-3">
-            <img src="../iconsSVG/trashIcon.svg" alt="" class="w-25 p-3">
+        <div class=" d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-success-subtle">
+            <div class="w-auto h-50 p-1" id="task1">Faire la vaiselleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
+            <div class="btn-group p-2">
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                    <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
+                </button>
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                    <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
+                </button>
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
+                </button>
+            </div>  
         </div>
-        <div class="task-container d-flex justify-content-center align-items-center">
-            <li class="list-group-item w-75 p-1 h-50">Laver le sol</li>
-            <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-25 p-3">
-            <img src="../iconsSVG/trashIcon.svg" alt="" class="w-25 p-3">
+        <div class=" d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-danger-subtle">
+            <div class="w-auto h-50 p-1" id="task1">Faire la vaiselleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
+            <div class="btn-group p-2">
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                    <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
+                </button>
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                    <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
+                </button>
+                <button class="btn btn-outline-secondary btn-sm w-25">
+                <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
+                </button>
+            </div>  
         </div>
-        <div class="task-container d-flex justify-content-center align-items-center ">
-            <li class="list-group-item w-75 p-1 h-50">An item 1aaahhhh</li>
-            <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-25 p-3">
-            <img src="../iconsSVG/trashIcon.svg" alt="" class="w-25 p-3">
-        </div>
-        
-    </ul>
+
+
+    </div>
 </div>
 </main>
 
