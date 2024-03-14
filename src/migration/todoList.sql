@@ -1,4 +1,4 @@
-CREATE TABLE Users(
+CREATE TABLE td_users(
    Id INT AUTO_INCREMENT,
    nom VARCHAR(50) ,
    prenom VARCHAR(50) ,
@@ -7,19 +7,19 @@ CREATE TABLE Users(
    PRIMARY KEY(Id)
 );
 
-CREATE TABLE Priority(
+CREATE TABLE td_priority(
    Id INT AUTO_INCREMENT,
    name VARCHAR(100)  NOT NULL,
    PRIMARY KEY(Id)
 );
 
-CREATE TABLE Category(
+CREATE TABLE td_category(
    Id INT AUTO_INCREMENT,
    name TEXT NOT NULL,
    PRIMARY KEY(Id)
 );
 
-CREATE TABLE Task(
+CREATE TABLE td_task(
    Id INT AUTO_INCREMENT,
    title VARCHAR(255) ,
    description VARCHAR(255)  NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Task(
    FOREIGN KEY(Id_2) REFERENCES Users(Id)
 );
 
-CREATE TABLE relationTaskCategory(
+CREATE TABLE td_relationTaskCategory(
    taskId INT,
    categoryId INT,
    PRIMARY KEY(taskId, categoryId),

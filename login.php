@@ -1,5 +1,7 @@
 <?php 
 require './components/header.php';
+
+$erreur = 0;
 ?>
 
 <form class="w-75 m-auto g-3">
@@ -14,11 +16,17 @@ require './components/header.php';
             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
         </div>
         <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3 mt-3" onclick="appelFetchConnexion()">Se connecter</button>
+        <button type="submit" class="btn btn-primary mb-3 mt-3" id="connexionBtn">Se connecter</button>
         </div>  
     </div>
 </form>
+<div class="response"></div>
 
+<?php if ($erreur): ?>
+<div class="alert alert-danger w-50 m-auto g-3" role="alert">
+    <?= $erreur ?>
+</div>
+<?php endif ?> 
 
 <?php
 require './components/footer.php';

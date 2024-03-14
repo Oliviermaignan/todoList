@@ -1,5 +1,5 @@
 <?php
-require './src/authentication.php';
+require './src/authenticationRedirection.php';
 force_connection();
 
 include './components/header.php';
