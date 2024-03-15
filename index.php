@@ -1,4 +1,5 @@
 <?php
+session_start();
 require './src/authenticationRedirection.php';
 force_connection();
 

@@ -12,8 +12,8 @@ class UsersRepository extends Db
         $users = [];
 
         foreach ($data as $user) {
-            $newStudent = new UsersRepository(
-                $user['name'],
+            $newStudent = new Users(
+                $user['nom'],
                 $user['prenom'],
                 $user['email'],
                 $user['password']
@@ -36,5 +36,24 @@ class UsersRepository extends Db
             $newUsers->getEmail(),
             $newUsers->getPassword()
         ]);
+    }
+
+    public function getPasswordByEmail($email)
+    {
+        try {
+            $query = $this->getDb()->prepare("SELECT td_users.password FROM td_users WHERE email = ?");
+            $query->execute([$email]);
+            $result = $query->fetch();
+    
+            if ($result) {
+                return $result['password'];
+            } else {
+                // si pas de resultat throw une erreur
+                throw new Exception("Adresse e-mail introuvable.");
+            }
+        } catch (Exception $e) {
+            echo "Erreur: " . $e->getMessage();
+            return null;
+        }
     }
 }

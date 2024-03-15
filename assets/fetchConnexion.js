@@ -12,25 +12,27 @@ function appelFetchConnexion() {
   let response = document.querySelector('.response')
   let dataObj = {
     "email": email,
-    "pwd" : pwd
+    "password" : pwd
   }
 
   let JSONdata = JSON.stringify(dataObj);
   
   const request = new XMLHttpRequest();
-  request.open('POST', './../src/traitementLogin.php', true);
+  request.open('POST', './../src/treatment/traitementLogin.php', true);
 
   request.setRequestHeader('content-type', 'application/json');
   request.send(JSONdata);
 
-  //cette fonction est a revoir pour pouvoir lui envoyé tout un tas de chose et pas que du texte
   request.onreadystatechange = function() {
     if (request.readyState === 4 && request.status === 200) {
       let responseData= JSON.parse(request.responseText);
-      let stringResponse = JSON.stringify(responseData);
-      response.innerHTML += "<p>" + stringResponse + "</p>";
+      if (responseData === true) {
+        //redirection vers la page d'accueil
+        window.location.href = "./../index.php";
     } else {
-      console.log('erreur de reception données')
+        //ici on peut rediriger l'utilisateur ou gere l'erreur en affichant un toast
+        response.innerHTML = "Connexion échouée";
+    }
     }
   }
 }

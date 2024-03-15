@@ -1,7 +1,6 @@
 <?php 
 require './components/header.php';
-
-$erreur = 0;
+require_once __DIR__ . "/src/repositories/UsersRepository.php";
 ?>
 
 <form class="w-75 m-auto g-3">
@@ -22,11 +21,6 @@ $erreur = 0;
 </form>
 <div class="response"></div>
 
-<?php if ($erreur): ?>
-<div class="alert alert-danger w-50 m-auto g-3" role="alert">
-    <?= $erreur ?>
-</div>
-<?php endif ?> 
 
 <?php
 require './components/footer.php';
