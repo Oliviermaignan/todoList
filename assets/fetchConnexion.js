@@ -1,9 +1,12 @@
-let connexionBtn = document.querySelector('#connexionBtn');
+////si le btn existe dans le HTML sinon ça a crée une erreur dans la console
+if (document.querySelector('#registerPageBtn')){
+  let connexionBtn = document.querySelector('#connexionBtn');
 
-connexionBtn.addEventListener('click', (e)=>{
-  e.preventDefault();
-  appelFetchConnexion()
-})
+  connexionBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    appelFetchConnexion();
+  })  
+}
 
 
 function appelFetchConnexion() {

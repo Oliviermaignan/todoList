@@ -1,7 +1,3 @@
-<?php
-session_start()
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +9,8 @@ session_start()
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" defer></script>
     <script src="./assets/script.js" defer></script>
     <script src="./assets/fetchConnexion.js" defer></script>
+    <script src="./assets/inscription.js" defer></script>
+    <script src="./assets/validationInscription.js" defer></script>
     <title>Document</title>
 </head>
 <body>

@@ -14,12 +14,19 @@ require_once __DIR__ . "/src/repositories/UsersRepository.php";
         <div id="passwordHelpBlock" class="form-text">
             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
         </div>
-        <div class="col-auto">
+        <div class=" text-center w-75 mt-2 m-auto">
         <button type="submit" class="btn btn-primary mb-3 mt-3" id="connexionBtn">Se connecter</button>
         </div>  
     </div>
 </form>
 <div class="response"></div>
+
+<!-- create a btn and p to tell the user if them are not register to click on the button with bootstrap -->
+
+<div class="text-center w-75 m-auto">
+    <p>Pas encore de compte ?</p>
+    <button type="submit" class="btn btn-primary mb-3 mt-3" id="registerPageBtn">S'enregistrer</button>
+</div>
 
 
 <?php
