@@ -10,23 +10,23 @@ require_once __DIR__ . "/src/repositories/UsersRepository.php";
       <h2 class="mt-5">Inscription</h2>
       <form action="./src/treatment/registerTreatment.php" method="POST">
         <div class="form-group">
-          <label for="nom">Nom</label>
+          <label for="nom">Nom*</label>
           <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom">
         </div>
         <div class="form-group">
-          <label for="prenom">Prénom</label>
+          <label for="prenom">Prénom*</label>
           <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Votre prénom">
         </div>
         <div class="form-group">
-          <label for="password">Mot de passe</label>
+          <label for="password">Mot de passe*</label>
           <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe">
         </div>
         <div class="form-group">
-          <label for="password_confirmation">Confirmation du mot de passe</label>
+          <label for="password_confirmation">Confirmation du mot de passe*</label>
           <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirmation">
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">Email*</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="Votre email">
         </div>
         <button type="submit" class="btn btn-primary mt-3" id="registerBtn">S'inscrire</button>

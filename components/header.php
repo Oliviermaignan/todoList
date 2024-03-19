@@ -1,3 +1,13 @@
+<?php
+session_start();
+//verifier si les sessions existent
+if (isset($_SESSION['connected']) && isset($_SESSION['email']) && isset($_SESSION['userId']) && isset($_SESSION['nom'])) {
+  $connected = $_SESSION['connected'];
+  $email = $_SESSION['email'];
+  $userId = $_SESSION['userId'];
+  $userName = $_SESSION['nom'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +26,17 @@
 <body>
 <header>
 <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
+  <div class="container-fluid  d-inline-flex  justify-content-between">
     <a class="navbar-brand" href="#">
       <img src="../iconsSVG/sun.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       My to-do list
     </a>
+    <!-- si ($_SESSION['connected']) afficher une div avec le nom de l'utilisateur -->
+    <?php if (isset($_SESSION['connected']) && isset($_SESSION['nom'])) { ?>
+    <div class="container w-50 primary m-3">
+          La todoList de : <?= $userName; ?>
+    </div>
+    <?php } ?>
   </div>
   
 </nav>

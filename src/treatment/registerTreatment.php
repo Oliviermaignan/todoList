@@ -20,13 +20,27 @@ if (!empty(file_get_contents('php://input'))) {
         $sanitizedObj["email"],
         $sanitizedObj["password"]
     );
-    var_dump($user);
 
     // Create user
     $userRepo = new UsersRepository();
     $creationNewUser = $userRepo->create($user);
+    $NewUserId = $userRepo->getUserIdByMail($user->getEmail());
+    $_SESSION['email'] = $user->getEmail();
+    $_SESSION['connected'] = true;  
+    $_SESSION['userId'] = $NewUserId;
+    $_SESSION['nom']=$user->getName();
+    if($creationNewUser){
+        $json = [
+            "registered" => true,
+            "lastRegisteredId" => $NewUserId
+        ];
+    } else {
+        $json = [
+            "registered" => false,
+            "lastRegisteredId" => null
+        ];
+    }
 
-    var_dump($creationNewUser);
     echo json_encode($json);
 }
 

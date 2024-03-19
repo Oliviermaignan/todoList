@@ -1,6 +1,9 @@
 //selection de l'element de response
-let response = document.querySelector('.registerResponse');
-response.classList.remove('alert', 'alert-warning');
+
+if (document.querySelector('.registerResponse')){
+    let response = document.querySelector('.registerResponse');
+    response.classList.remove('alert', 'alert-warning');
+}
 
 //valider que tout les champs ne soient pas vide sinon afficher un toast bootstrap dnas la response
 function validationInscription() {

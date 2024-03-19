@@ -54,10 +54,9 @@ function appelFetchInscription() {
     })
     .then(response => response.json())
     .then(responseData => {
-        if (responseData === true) {
-            console.log(responseData);
-            // //redirection vers la page d'accueil
-            // window.location.href = "./../index.php";
+        if (responseData) {
+            //redirection vers la page d'accueil
+            window.location.href = "./../index.php";
         } else {
             //ici on peut rediriger l'utilisateur ou gere l'erreur en affichant un toast
             console.log(responseData);

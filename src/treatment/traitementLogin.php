@@ -18,7 +18,10 @@ if (!empty(file_get_contents('php://input'))) {
         //j'ouvre la sesssion et enregistre l'email et le statut
         session_start();
         $_SESSION['email'] = $email;
-        $_SESSION['connected'] = true;  
+        $_SESSION['connected'] = true;
+        $_SESSION['userId'] = $UserRepo->getUserIdByMail($email);
+        $_SESSION['nom']=$UserRepo->getUserNameByMail($email);
+        //je renvoie pour dire que j'ai connecté
         echo json_encode($isConnected);
         exit;
         //rediriger l'utilisateur vers index

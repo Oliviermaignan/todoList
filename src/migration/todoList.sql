@@ -24,11 +24,11 @@ CREATE TABLE td_task(
    title VARCHAR(255) ,
    description VARCHAR(255)  NOT NULL,
    deadline DATE NOT NULL,
-   Id_1 INT NOT NULL,
-   Id_2 INT NOT NULL,
+   priority_Id INT NOT NULL,
+   users_Id INT NOT NULL,
    PRIMARY KEY(Id),
-   FOREIGN KEY(Id_1) REFERENCES Priority(Id),
-   FOREIGN KEY(Id_2) REFERENCES Users(Id)
+   FOREIGN KEY(priority_Id) REFERENCES Priority(Id),
+   FOREIGN KEY(users_Id) REFERENCES Users(Id)
 );
 
 CREATE TABLE td_relationTaskCategory(

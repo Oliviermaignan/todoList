@@ -36,6 +36,12 @@ class UsersRepository extends Db
             $newUsers->getEmail(),
             $newUsers->getPassword()
         ]);
+
+        if ($query) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function getPasswordByEmail($email)
@@ -47,6 +53,41 @@ class UsersRepository extends Db
     
             if ($result) {
                 return $result['password'];
+            } else {
+                // si pas de resultat throw une erreur
+                throw new Exception("Adresse e-mail introuvable.");
+            }
+        } catch (Exception $e) {
+            echo "Erreur: " . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function getUserIdByMail($email){
+        try {
+            $query = $this->getDb()->prepare("SELECT * FROM td_users WHERE email = ?");
+            $query->execute([$email]);
+            $result = $query->fetch();
+            if ($result) {
+                return $result;
+            } else {
+                // si pas de resultat throw une erreur
+                throw new Exception("Adresse e-mail introuvable.");
+            }
+        } catch (Exception $e) {
+            echo "Erreur: " . $e->getMessage();
+            return null;
+        }
+    }
+
+    public function getUserNameByMail($email){
+        try {
+            $query = $this->getDb()->prepare("SELECT nom FROM td_users WHERE email = ?");
+            $query->execute([$email]);
+            $query->setFetchMode(PDO::FETCH_ASSOC);
+            $result = $query->fetch();
+            if ($result) {
+                return $result['nom'];
             } else {
                 // si pas de resultat throw une erreur
                 throw new Exception("Adresse e-mail introuvable.");
