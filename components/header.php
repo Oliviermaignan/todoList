@@ -19,6 +19,7 @@ if (isset($_SESSION['connected']) && isset($_SESSION['email']) && isset($_SESSIO
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" defer></script>
     <script src="./assets/script.js" defer></script>
     <script src="./assets/fetchConnexion.js" defer></script>
+    <script src="./assets/fetchTask.js" defer></script>
     <script src="./assets/inscription.js" defer></script>
     <script src="./assets/validationInscription.js" defer></script>
     <title>Document</title>

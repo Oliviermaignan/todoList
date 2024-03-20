@@ -29,9 +29,9 @@ class Task
         return $this->description;
     }
 
-    public function getDeadline(): DateTime
+    public function getDeadline(): string
     {
-        return $this->deadline;
+        return $this->deadline->format('Y-m-d');
     }
 
     public function getPriorityId(): int
@@ -47,11 +47,23 @@ class Task
 
 	public function setDescription(string $description): void {$this->description = $description;}
 
-	public function setDeadline(DateTime $deadline): void {$this->deadline = $deadline;}
+	public function setDeadline(DateTime $deadline): void {
+        $this->deadline = $deadline;
+    }
 
 	public function setPriorityId(int $priorityId): void {$this->priorityId = $priorityId;}
 
 	public function setUserId(int $userId): void {$this->userId = $userId;}
 
+    public function convertToAssociativeArray()
+    {
+        return [
+            "title" => $this->title,
+            "description" => $this->description,
+            "deadline" => $this->deadline,
+            "priorityId" => $this->priorityId,
+            "userId" => $this->userId
+        ];
+    }
 	
 }

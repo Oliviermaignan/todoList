@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__ . "/../src/repositories/TaskRepository.php";
+$NewtaskRepo = new TaskRepository();
+$tasks = $NewtaskRepo->getAll();
+?>
+
 <main class="main d-flex">
 <div class="container mt-5 w-25 p-3">
         <form>
@@ -22,39 +28,35 @@
                     <option value="urgent" class="bg-danger-subtle">Urgent</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <button type="submit" class="btn btn-primary" id="addTaskBtn">Ajouter</button>
         </form>
 </div>
 <div class="container mt-5 w-50 p-3 d-flex align-items-center justify-content-center">
     <div class="list-group list-group-flush">
-        <div class=" d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-warning-subtle">
-            <div class="w-auto h-50 p-1" id="task1">Faire la vaiselleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-            <div class="btn-group p-2">
-                <button class="btn btn-outline-secondary btn-sm w-25">
-                    <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
-                </button>
-                <button class="btn btn-outline-secondary btn-sm w-25">
-                    <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
-                </button>
-                <button class="btn btn-outline-secondary btn-sm w-25">
+
+<?php
+foreach ($tasks as $task) {
+    // HTML structure for displaying tasks
+?>
+    <div class="d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-warning-subtle">
+        <div class="w-auto h-50 p-1" id="task1"><?= $task->getTitle(); ?></div>
+        <div class="btn-group p-2">
+            <button class="btn btn-outline-secondary btn-sm w-25">
+                <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
+            </button>
+            <button class="btn btn-outline-secondary btn-sm w-25">
+                <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
+            </button>
+            <button class="btn btn-outline-secondary btn-sm w-25">
                 <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
-                </button>
-            </div>  
-        </div>
-        <div class=" d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-success-subtle">
-            <div class="w-auto h-50 p-1" id="task1">Faire la vaiselleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-            <div class="btn-group p-2">
-                <button class="btn btn-outline-secondary btn-sm w-25">
-                    <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
-                </button>
-                <button class="btn btn-outline-secondary btn-sm w-25">
-                    <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
-                </button>
-                <button class="btn btn-outline-secondary btn-sm w-25">
-                <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
-                </button>
-            </div>  
-        </div>
+            </button>
+        </div>  
+    </div>
+    <?php
+}
+?>
+
+
         <div class=" d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-danger-subtle">
             <div class="w-auto h-50 p-1" id="task1">Faire la vaiselleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
             <div class="btn-group p-2">

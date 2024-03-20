@@ -65,11 +65,11 @@ class UsersRepository extends Db
 
     public function getUserIdByMail($email){
         try {
-            $query = $this->getDb()->prepare("SELECT * FROM td_users WHERE email = ?");
+            $query = $this->getDb()->prepare("SELECT td_users.id FROM td_users WHERE email = ?");
             $query->execute([$email]);
             $result = $query->fetch();
             if ($result) {
-                return $result;
+                return $result['id'];
             } else {
                 // si pas de resultat throw une erreur
                 throw new Exception("Adresse e-mail introuvable.");
