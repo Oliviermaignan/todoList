@@ -38,7 +38,10 @@ $tasks = $NewtaskRepo->getAll();
 foreach ($tasks as $task) {
     // HTML structure for displaying tasks
 ?>
-    <div class="d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-warning-subtle">
+    <div class="d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 
+    <!-- en fonction de la priorité on change la couleur de fond -->
+    <?= $task->getPriorityId() === 0 ? 'bg-success-subtle' : ($task->getPriorityId() === 1 ? 'bg-warning-subtle' : 'bg-danger-subtle') ?>
+    ">
         <div class="w-auto h-50 p-1" id="task1"><?= $task->getTitle(); ?></div>
         <div class="btn-group p-2">
             <button class="btn btn-outline-secondary btn-sm w-25">

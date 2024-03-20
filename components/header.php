@@ -22,6 +22,7 @@ if (isset($_SESSION['connected']) && isset($_SESSION['email']) && isset($_SESSIO
     <script src="./assets/fetchTask.js" defer></script>
     <script src="./assets/inscription.js" defer></script>
     <script src="./assets/validationInscription.js" defer></script>
+    <script src="./assets/logout.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -37,6 +38,10 @@ if (isset($_SESSION['connected']) && isset($_SESSION['email']) && isset($_SESSIO
     <div class="container w-50 primary m-3">
           La todoList de : <?= $userName; ?>
     </div>
+    <?php } ?>
+    <!-- afficher le bouton deconnexion si utilisateur connecté -->
+    <?php if (isset($_SESSION['connected'])) { ?>
+    <button id="logout-button" class="btn btn-secondary">Déconnexion</button>
     <?php } ?>
   </div>
   
