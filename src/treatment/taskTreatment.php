@@ -1,5 +1,6 @@
 <?php   
 require_once __DIR__ . "/../repositories/TaskRepository.php";
+require_once __DIR__ . "/../../templates/taskTemplate.php";
 session_start();
 $userId = $_SESSION['userId'];
 if (!empty(file_get_contents('php://input'))){
@@ -26,8 +27,10 @@ if (!empty(file_get_contents('php://input'))){
     $taskRepository = new TaskRepository();
     $taskRepository->create($newTask);
     $userTasks= $taskRepository->getTasksByUserId($userId);
+    //génération du template pour chaque taches
+    $html =generateTaskTemplate($newTask->getPriorityId(), $newTask->getTitle());
     //renvoyer les données au front
-    $retour= json_encode($userTasks);
-    header('Content-Type: application/json');
-    echo $retour;
+    $htmlResponse= json_encode($html);
+    // header('Content-Type: application/json');
+    echo $htmlResponse;
 } 

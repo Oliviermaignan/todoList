@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . "/../src/repositories/TaskRepository.php";
 $NewtaskRepo = new TaskRepository();
-$tasks = $NewtaskRepo->getAll();
+$tasks = $NewtaskRepo->getTasksByUserId($_SESSION['userId']);
 ?>
 
 <main class="main d-flex">
@@ -32,50 +32,32 @@ $tasks = $NewtaskRepo->getAll();
         </form>
 </div>
 <div class="container mt-5 w-50 p-3 d-flex align-items-center justify-content-center">
-    <div class="list-group list-group-flush">
+    <div class="list-group list-group-flush" id="tasksList">
 
-<?php
-foreach ($tasks as $task) {
-    // HTML structure for displaying tasks
-?>
-    <div class="d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 
-    <!-- en fonction de la priorité on change la couleur de fond -->
-    <?= $task->getPriorityId() === 0 ? 'bg-success-subtle' : ($task->getPriorityId() === 1 ? 'bg-warning-subtle' : 'bg-danger-subtle') ?>
-    ">
-        <div class="w-auto h-50 p-1" id="task1"><?= $task->getTitle(); ?></div>
-        <div class="btn-group p-2">
-            <button class="btn btn-outline-secondary btn-sm w-25">
-                <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
-            </button>
-            <button class="btn btn-outline-secondary btn-sm w-25">
-                <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
-            </button>
-            <button class="btn btn-outline-secondary btn-sm w-25">
-                <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
-            </button>
-        </div>  
-    </div>
-    <?php
-}
-?>
-
-
-        <div class=" d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 bg-danger-subtle">
-            <div class="w-auto h-50 p-1" id="task1">Faire la vaiselleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
-            <div class="btn-group p-2">
-                <button class="btn btn-outline-secondary btn-sm w-25">
-                    <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
-                </button>
-                <button class="btn btn-outline-secondary btn-sm w-25">
-                    <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
-                </button>
-                <button class="btn btn-outline-secondary btn-sm w-25">
-                <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
-                </button>
-            </div>  
-        </div>
-
-
+        <?php
+        foreach ($tasks as $task) {
+            // HTML structure for displaying tasks
+        ?>
+            <div class="d-flex justify-content-center align-items-center border shadow rounded p-1 m-2 
+            <!-- en fonction de la priorité on change la couleur de fond -->
+            <?= $task['priorityId'] === 0 ? 'bg-success-subtle' : ($task['priorityId'] === 1 ? 'bg-warning-subtle' : 'bg-danger-subtle') ?>
+            ">
+                <div class="w-auto h-50 p-1" id="task1"><?= $task['title']; ?></div>
+                <div class="btn-group p-2">
+                    <button class="btn btn-outline-secondary btn-sm w-25">
+                        <input class="form-check-input" type="checkbox" id="doneCheck" name="doneCheck">
+                    </button>
+                    <button class="btn btn-outline-secondary btn-sm w-25">
+                        <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
+                    </button>
+                    <button class="btn btn-outline-secondary btn-sm w-25">
+                        <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
+                    </button>
+                </div>  
+            </div>
+            <?php
+        }
+        ?>
     </div>
 </div>
 </main>

@@ -13,6 +13,7 @@ function appelFetchTask(){
     let descriptionInput = document.querySelector('#descriptionInput').value;
     let dateInput = document.querySelector('#dateInput').value;
     let prioritySelect = document.querySelector('#prioritySelect').value;
+    let tasksList = document.querySelector('#tasksList');
 
     let dataObj = {
         "task": taskInput,
@@ -32,10 +33,17 @@ function appelFetchTask(){
     .then(response => response.json())
     .then(responseData => {
         if (responseData) {
-            // let data = JSON.parse(responseData);
-            console.log(responseData);
+            // Parse the HTML content from the response
+            let htmlContent = responseData;
+            // Create a temporary element to hold the parsed HTML content
+            let tempElement = document.createElement('div');
+            tempElement.innerHTML = htmlContent;
+
+            // Append the parsed HTML content to the tasksList element
+            tasksList.appendChild(tempElement.firstChild);
+
         } else {
-            console.log(responseData);
+            console.log('La requête a echouée');
         }
     })
     .catch(error => {
