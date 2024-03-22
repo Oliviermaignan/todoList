@@ -31,6 +31,7 @@ class TaskRepository extends Db
 
         foreach ($datas as $task) {
             $task = new Task(
+                $task['Id'],
                 $task['title'],
                 $task['description'],
                 new DateTime($task['deadline']),
@@ -52,6 +53,7 @@ class TaskRepository extends Db
         $tasks = [];
         foreach($datas as $task){
             $task = new Task(
+                $task['Id'],
                 $task['title'],
                 $task['description'],
                 new DateTime($task['deadline']),
@@ -63,7 +65,24 @@ class TaskRepository extends Db
         return $tasks;
     }
     
+    function deleteThisTask(int $taskId){
+        $sql = "DELETE FROM td_task WHERE id = ?";
+        $query = $this->getDb()->prepare($sql);
+        $result = $query->execute([$taskId]);
 
+        if ($result) {
+            return true;
+        } else {
+            $error = $query->errorInfo();
+            return "Delete failed: " . $error[2];
+        }
+    }
 
-
+    function getLastId(){
+        $sql = "SELECT LAST_INSERT_ID();";
+        $query = $this->getDb()->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        return $result[0];
+    }
 }

@@ -4,19 +4,26 @@
 
 class Task
 {
+    private $id;
     private string $title;
     private string $description;
     private DateTime $deadline;
     private int $priorityId;
     private int $userId;
 
-    public function __construct(string $title, string $description, DateTime $deadline, int $priorityId, int $userId)
+    public function __construct(int|null $id,string $title, string $description, DateTime $deadline, int $priorityId, int $userId)
     {
+        $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->deadline = $deadline;
         $this->priorityId = $priorityId;
         $this->userId = $userId;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getTitle(): string
@@ -58,6 +65,7 @@ class Task
     public function convertToAssociativeArray()
     {
         return [
+            "id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
             "deadline" => $this->deadline,

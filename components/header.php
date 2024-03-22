@@ -23,6 +23,7 @@ if (isset($_SESSION['connected']) && isset($_SESSION['email']) && isset($_SESSIO
     <script src="./assets/inscription.js" defer></script>
     <script src="./assets/validationInscription.js" defer></script>
     <script src="./assets/logout.js" defer></script>
+    <script src="./assets/deleteTask.js" defer></script>
     <title>Document</title>
 </head>
 <body>

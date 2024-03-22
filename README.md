@@ -1,8 +1,30 @@
-# todoList
-Pour jeune cadre dynamique voulant améliorer sa productivité journalière
+# Ma TodoList
 
-Fait avec HTML, PHP, JS, MySQL
+Fait avec PHP, JS et MySQL
 
-[NOTION](https://www.notion.so/BRIEF-T0D0LIST-b1bbf79d45a34536895be8991eeae9da?pvs=4)
+[FIGMA](https://www.figma.com/file/cs9bH1t2kaApWEj0J9RO3Q/T0d0List-boostrap?type=design&node-id=0%3A1&mode=design&t=iO5pnl0LgznyHJco-1)
 
-remplacer les valeurs de config par les votres // à développer
+## Description
+Voici une TodoList faite dans le cadre de la formation Simplon.
+
+## Installation
+Lors de l'installation en production, veuillez renseigner dans le fichier config.php les bonnes informations relatives à la base de données.
+
+## Migration
+La migration n'est pas opérationnelle. 
+Le code pour crée la base de données est dans le fichier migrations sous le nom todoList.sql.
+
+Vous devez passer par votre interface SQL afin de créer la base de données sur votre machine
+
+Si vous souhaitez faire des modifications avant la création de la base de données, c'est donc dans ce fichier que vous devez modifier les choses.
+
+
+
+VERSIONS
+Le programme a été conçu avec :
+
+PHP 8.3.0
+MySQL 8.2
+
+note:
+MCD MLD à la racine du projet j'ai modifié certaines clefs étrangères directement dans todolist.sql

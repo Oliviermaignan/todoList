@@ -39,7 +39,6 @@ function appelFetchTask(){
             let tempElement = document.createElement('div');
             tempElement.innerHTML = htmlContent;
 
-            // Append the parsed HTML content to the tasksList element
             tasksList.appendChild(tempElement.firstChild);
 
         } else {

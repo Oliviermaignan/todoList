@@ -22,13 +22,14 @@ if (!empty(file_get_contents('php://input'))){
         $priority = 2;
     }
 
-    $newTask = new Task($taskTitle, $description, $deadline, $priority, $userId);
+    $newTask = new Task(null, $taskTitle, $description, $deadline, $priority, $userId);
 
     $taskRepository = new TaskRepository();
     $taskRepository->create($newTask);
     $userTasks= $taskRepository->getTasksByUserId($userId);
+    $taskId = $taskRepository->getLastId();
     //génération du template pour chaque taches
-    $html =generateTaskTemplate($newTask->getPriorityId(), $newTask->getTitle());
+    $html =generateTaskTemplate($newTask->getPriorityId(), $newTask->getTitle(), $taskId);
     //renvoyer les données au front
     $htmlResponse= json_encode($html);
     // header('Content-Type: application/json');

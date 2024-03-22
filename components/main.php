@@ -50,7 +50,7 @@ $tasks = $NewtaskRepo->getTasksByUserId($_SESSION['userId']);
                     <button class="btn btn-outline-secondary btn-sm w-25">
                         <img src="../iconsSVG/pencilIcon.svg" alt="" class="w-auto">
                     </button>
-                    <button class="btn btn-outline-secondary btn-sm w-25">
+                    <button class="btn btn-outline-secondary btn-sm w-25 deleteBtn" id="<?=$task['id']?>">
                         <img src="../iconsSVG/trashIcon.svg" alt="" class="w-auto">
                     </button>
                 </div>  
